@@ -1,18 +1,15 @@
 require('dotenv').config();
 const app = require('express')()
-const PORT = 5000;
+const PORT = process.env.PORT || 5000
 const http = require('http').Server(app);
 const bodyParser = require('body-parser')
 const io = require('socket.io')(http, { cors: true });
 const cors = require('cors');
-const { disconnect } = require('process');
 const webRTC = require('wrtc')
 let users = []
 let peers = {}
 let consumers = {}
 let usedMeetIDs = []
-
-
 
 app.use(bodyParser.json({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }));
