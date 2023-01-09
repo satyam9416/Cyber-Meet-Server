@@ -14,7 +14,7 @@ let usedMeetIDs = []
 app.use(bodyParser.json({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-    origin: 'https://cybermeet.netlify.com/',
+    origin: 'https://cyber-meet.netlify.com/',
     credentials: true,
 }));
 
