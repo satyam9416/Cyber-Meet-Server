@@ -102,6 +102,7 @@ io.on('connection', socket => {
     })
 
     socket.on('ice-candidate', ice => {
+        console.log('ice : ', ice)
         if (peers[socket.id] && ice) {
             peers[socket.id].addIceCandidate(new webRTC.RTCIceCandidate(ice)).catch(e => console.log(e));
         }
