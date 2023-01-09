@@ -127,6 +127,6 @@ io.on('connection', socket => {
 
 })
 
-http.listen(PORT, '192.168.0.104', () => {
+http.listen(PORT, () => {
     console.log('Server is running at port ', PORT)
 })
