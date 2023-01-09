@@ -37,10 +37,30 @@ app.get('/create-new-meet', (req, res) => {
 
 const createPeer = () => {
     const peer = new webRTC.RTCPeerConnection({
+        // iceServers: [
+        //     { 'urls': 'stun:stun.stunprotocol.org:3478' },
+        //     { 'urls': 'stun:stun.l.google.com:19302' },
+        // ]
         iceServers: [
-            { 'urls': 'stun:stun.stunprotocol.org:3478' },
-            { 'urls': 'stun:stun.l.google.com:19302' },
-        ]
+            {
+                urls: "stun:relay.metered.ca:80",
+            },
+            {
+                urls: "turn:relay.metered.ca:80",
+                username: "07980d6073378245d1ed6ef9",
+                credential: "vkbnV4euCGd/+udF",
+            },
+            {
+                urls: "turn:relay.metered.ca:443",
+                username: "07980d6073378245d1ed6ef9",
+                credential: "vkbnV4euCGd/+udF",
+            },
+            {
+                urls: "turn:relay.metered.ca:443?transport=tcp",
+                username: "07980d6073378245d1ed6ef9",
+                credential: "vkbnV4euCGd/+udF",
+            },
+        ],
     })
     return peer;
 }
